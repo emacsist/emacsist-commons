@@ -2,6 +2,7 @@ package io.github.emacsist;
 
 import io.github.emacsist.constants.DateTimePattern;
 import io.github.emacsist.kit.DateTimeKit;
+import io.github.emacsist.kit.FileKit;
 import org.junit.Test;
 
 import java.util.Date;
@@ -23,7 +24,13 @@ public class AppTest {
     }
 
     @Test
-    public void testGetYesterday(){
+    public void testGetYesterday() {
         System.out.println(DateTimeKit.format(DateTimeKit.getYesterday(), DateTimePattern.YYYY_MM_DD_HH_MM_SS));
+    }
+
+    @Test
+    public void testExt() {
+        System.out.println(FileKit.getExt("hello.world.log"));
+        System.out.println(FileKit.getExtWihtouDot("hello.world.log"));
     }
 }
