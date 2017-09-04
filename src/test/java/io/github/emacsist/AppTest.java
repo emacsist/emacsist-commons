@@ -1,38 +1,29 @@
 package io.github.emacsist;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import io.github.emacsist.constants.DateTimePattern;
+import io.github.emacsist.kit.DateTimeKit;
+import org.junit.Test;
+
+import java.util.Date;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest {
+    @Test
+    public void testDateFormat() {
+        Date d = new Date();
+
+        System.out.println(DateTimeKit.format(d, DateTimePattern.YYYY_MM_DD_HH_MM_SS));
+
+        System.out.println(DateTimeKit.format(d, DateTimePattern.YYYY_MM_DD_HH_MM));
+
+        System.out.println(DateTimeKit.format(d, DateTimePattern.YYYY_MM_DD));
+
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testGetYesterday(){
+        System.out.println(DateTimeKit.format(DateTimeKit.getYesterday(), DateTimePattern.YYYY_MM_DD_HH_MM_SS));
     }
 }
